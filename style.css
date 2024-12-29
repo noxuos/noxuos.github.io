@@ -26,6 +26,7 @@ header {
     padding: 0;
     margin: 0;
     display: flex;
+    margin-left: 2rem;
 }
 
 .top-menu ul li {
