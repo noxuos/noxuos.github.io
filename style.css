@@ -26,6 +26,7 @@ header {
     padding: 0;
     margin: 0;
     display: flex;
+    margin-left: 2rem;
 }
 
 .top-menu ul li {
@@ -44,9 +45,9 @@ header {
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
-    color: #fff;
+    color: blue;
 }
 
 /* Main Content */
