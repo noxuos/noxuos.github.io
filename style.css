@@ -8,10 +8,12 @@ body {
     background-color: #f9f9f9;
 }
 
+/* Header Styles */
 header {
-    background: #222;
+    background: linear-gradient(90deg, #222, #444);
     color: #fff;
     padding: 1rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .top-menu {
@@ -26,7 +28,6 @@ header {
     padding: 0;
     margin: 0;
     display: flex;
-    margin-left: 2rem;
 }
 
 .top-menu ul li {
@@ -37,6 +38,7 @@ header {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
+    font-size: 1rem;
     transition: color 0.3s ease;
 }
 
@@ -44,10 +46,22 @@ header {
     color: #1e90ff;
 }
 
+/* Logo Styles */
 .logo {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: bold;
-    color: blue;
+    color: #1e90ff;
+    text-transform: uppercase;
+    user-select: none;
+    cursor: default;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo i {
+    font-size: 2rem;
+    color: #ffd700; /* Golden color for the icon */
 }
 
 /* Main Content */
@@ -66,7 +80,7 @@ main {
     color: #222;
 }
 
-.github-link {
+.github-button {
     display: inline-block;
     padding: 0.5rem 1rem;
     background: #1e90ff;
@@ -77,7 +91,7 @@ main {
     transition: background 0.3s ease;
 }
 
-.github-link:hover {
+.github-button:hover {
     background: #0077cc;
 }
 
@@ -88,4 +102,16 @@ footer {
     text-align: center;
     padding: 1rem 0;
     margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .top-menu ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .top-menu ul li {
+        margin-bottom: 1rem;
+    }
 }
