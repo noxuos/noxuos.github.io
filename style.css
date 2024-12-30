@@ -1,4 +1,4 @@
-/* General Styles /
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -120,7 +120,7 @@ footer {
     padding: 1rem 0;
     margin-top: auto;
 }
-/ Responsive Design */
+/* Responsive Design */
 @media (max-width: 768px) {
     .top-menu ul {
         flex-direction: column;
@@ -128,5 +128,119 @@ footer {
     }
     .top-menu ul li {
         margin-bottom: 1rem;
+    }
+}
+
+/* Documentation Container */
+.docs-container {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Sidebar Styles */
+.docs-sidebar {
+    width: 280px;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+}
+
+.docs-search {
+    margin-bottom: 1.5rem;
+}
+
+.docs-search input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.docs-search input:focus {
+    border-color: #1e90ff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(30,144,255,0.25);
+}
+
+.docs-nav-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: #333;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.docs-nav-link:hover {
+    background: #e9ecef;
+    color: #1e90ff;
+}
+
+.docs-nav-link.active {
+    background: #1e90ff;
+    color: white;
+}
+
+/* Content Styles */
+.docs-content {
+    flex: 1;
+    padding: 20px;
+    min-width: 0; /* Prevents flex item from overflowing */
+}
+
+.docs-section {
+    display: none; /* Hidden by default */
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.docs-section.active {
+    display: block; /* Shown when active */
+}
+
+.docs-section-title {
+    color: #222;
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.docs-subsection {
+    margin-bottom: 1.5rem;
+}
+
+.docs-subsection-title {
+    color: #495057;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .docs-container {
+        flex-direction: column;
+        margin: 1rem;
+    }
+
+    .docs-sidebar {
+        width: 100%;
+        position: static;
+    }
+
+    .docs-content {
+        padding: 1rem;
     }
 }
