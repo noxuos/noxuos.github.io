@@ -57,7 +57,19 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 NoxuOS. All rights reserved.</p>
+        <p>&copy; <span id="copyright-year"></span> NoxuOS. All rights reserved.</p>
+        <p>
+            <a href="privacy.html">Privacy Policy</a> | 
+            <a href="terms.html">Terms of Service</a> | 
+            <a href="contact.html">Contact Us</a>
+        </p>
     </footer>
+
+    <script>
+        const startYear = 2024; // The year NoxuOS was created
+        const currentYear = new Date().getFullYear();
+        document.getElementById("copyright-year").textContent = 
+            startYear === currentYear ? startYear : `${startYear} - ${currentYear}`;
+    </script>
 </body>
 </html>
