@@ -105,6 +105,32 @@ main {
     background: #0077cc;
 }
 
+.github-button:hover {
+    background-color: #0077cc;
+}
+
+/* Discord Button Styles */
+.discord-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #7289DA; /* Discord's blue color */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.discord-button i {
+    margin-right: 8px; /* Adds space between the icon and text */
+}
+
+.discord-button:hover {
+    background-color: #5865F2; /* A lighter shade on hover */
+}
+
 /* Footer */
 footer {
     background: #222;
