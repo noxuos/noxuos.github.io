@@ -66,6 +66,7 @@ header {
 .logo i {
     font-size: 2rem;
     color: #ffd700; /* Golden color for the icon */
+    text-decoration: none;
 }
 
 /* Main Content */
