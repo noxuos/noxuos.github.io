@@ -4,73 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NoxuOS Documentation</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         :root {
             --sidebar-width: 280px;
-            --header-height: 60px;
+            --primary-color: #007bff;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             margin: 0;
-            padding-top: var(--header-height);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: var(--header-height);
+        /* Header Styles */
+        .top-menu {
             background: white;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
             display: flex;
             align-items: center;
-            padding: 0 20px;
-            z-index: 1000;
+            gap: 0.5rem;
         }
 
-        .search-container {
-            max-width: 300px;
-            margin-left: auto;
-            margin-right: 20px;
+        .top-menu ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
         }
 
-        .search-input {
-            width: 100%;
-            padding: 8px 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            outline: none;
+        .top-menu a {
+            color: #333;
+            text-decoration: none;
         }
 
-        .search-input:focus {
-            border-color: #007bff;
-            box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+        .top-menu a:hover {
+            color: var(--primary-color);
         }
 
+        /* Main Container */
         .main-container {
             display: flex;
-            min-height: calc(100vh - var(--header-height));
+            flex: 1;
         }
 
+        /* Sidebar */
         .sidebar {
             width: var(--sidebar-width);
             background: #f8f9fa;
             padding: 20px;
-            position: fixed;
-            top: var(--header-height);
-            bottom: 0;
-            overflow-y: auto;
             border-right: 1px solid #dee2e6;
-        }
-
-        .content {
-            margin-left: var(--sidebar-width);
-            padding: 30px;
-            flex-grow: 1;
-            max-width: calc(100% - var(--sidebar-width));
         }
 
         .nav-link {
@@ -84,21 +82,23 @@
 
         .nav-link:hover {
             background: #e9ecef;
-            color: #007bff;
+            color: var(--primary-color);
         }
 
         .nav-link.active {
-            background: #007bff;
+            background: var(--primary-color);
             color: white;
+        }
+
+        /* Content */
+        .content {
+            flex: 1;
+            padding: 30px;
+            max-width: calc(100% - var(--sidebar-width));
         }
 
         .section {
             margin-bottom: 40px;
-            display: none;
-        }
-
-        .section.active {
-            display: block;
         }
 
         .section-title {
@@ -116,66 +116,98 @@
             margin-bottom: 15px;
         }
 
-        .breadcrumb {
-            margin-bottom: 20px;
-            padding: 8px 0;
+        /* Footer */
+        footer {
+            background: #f8f9fa;
+            padding: 1rem;
+            text-align: center;
+            border-top: 1px solid #dee2e6;
         }
 
+        footer a {
+            color: #495057;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            color: var(--primary-color);
+        }
+
+        .discord-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Mobile Adjustments */
         @media (max-width: 768px) {
-            .sidebar {
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
+            .main-container {
+                flex-direction: column;
             }
 
-            .sidebar.active {
-                transform: translateX(0);
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #dee2e6;
             }
 
             .content {
-                margin-left: 0;
                 max-width: 100%;
             }
 
-            .menu-toggle {
-                display: block !important;
+            .top-menu {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .top-menu ul {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
             }
         }
 
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            padding: 10px;
-            margin-right: 10px;
-            cursor: pointer;
+        /* Search Box */
+        .search-container {
+            padding: 0 12px 20px 12px;
+            border-bottom: 1px solid #dee2e6;
+            margin-bottom: 20px;
         }
 
-        code {
-            background: #f8f9fa;
-            padding: 2px 4px;
+        .search-input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
             border-radius: 4px;
-            color: #e83e8c;
+            outline: none;
         }
 
-        pre {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 4px;
-            overflow-x: auto;
+        .search-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <button class="menu-toggle">☰</button>
-        <h1 style="margin: 0; font-size: 1.25rem;">NoxuOS Documentation</h1>
-        <div class="search-container">
-            <input type="text" class="search-input" placeholder="Search documentation...">
-        </div>
+    <header>
+        <nav class="top-menu">
+            <a href="index.html">
+                <div class="logo"><i class="bi bi-stars"></i> NoxuOS</div>
+            </a>
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
+                <li><a href="#contribute">Contribute</a></li>
+            </ul>
+        </nav>
     </header>
 
     <div class="main-container">
         <nav class="sidebar">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search documentation...">
+            </div>
             <div class="nav-section">
                 <a href="#hal" class="nav-link" data-section="hal">Hardware Abstraction Layer (HAL)</a>
                 <a href="#hal-components" class="nav-link" data-section="hal-components">HAL Components</a>
@@ -185,7 +217,7 @@
         </nav>
 
         <main class="content">
-            <section id="hal" class="section active">
+            <section id="hal" class="section">
                 <h2 class="section-title">Hardware Abstraction Layer (HAL)</h2>
                 <div class="subsection">
                     <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components. It ensures that the operating system is independent of the underlying hardware and can run on different devices without modification.</p>
@@ -225,7 +257,22 @@
         </main>
     </div>
 
+    <footer>
+        <p>&copy; <span id="copyright-year"></span> NoxuOS. All rights reserved.</p>
+        <p>
+            <a href="privacy.html">Privacy Policy</a> | 
+            <a href="terms.html">Terms of Service</a> | 
+            <a href="https://discord.gg/kwE5MqYydh" class="discord-button" target="_blank"><i class="bi bi-discord"></i> Join Our Discord</a>
+        </p>
+    </footer>
+
     <script>
+        // Copyright year
+        const startYear = 2024;
+        const currentYear = new Date().getFullYear();
+        document.getElementById("copyright-year").textContent = 
+            startYear === currentYear ? startYear : `${startYear} - ${currentYear}`;
+
         // Navigation handling
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', (e) => {
@@ -233,26 +280,17 @@
                 const sectionId = link.getAttribute('href').substring(1);
                 
                 // Update active states
-                document.querySelectorAll('.section').forEach(section => {
-                    section.classList.remove('active');
-                });
                 document.querySelectorAll('.nav-link').forEach(navLink => {
                     navLink.classList.remove('active');
                 });
                 
-                document.getElementById(sectionId).classList.add('active');
                 link.classList.add('active');
-
-                // Close mobile menu if open
-                if (window.innerWidth <= 768) {
-                    document.querySelector('.sidebar').classList.remove('active');
-                }
+                
+                // Scroll to section
+                document.getElementById(sectionId).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
-        });
-
-        // Mobile menu toggle
-        document.querySelector('.menu-toggle').addEventListener('click', () => {
-            document.querySelector('.sidebar').classList.toggle('active');
         });
 
         // Search functionality
@@ -263,22 +301,8 @@
             sections.forEach(section => {
                 const text = section.textContent.toLowerCase();
                 const matches = text.includes(searchTerm);
-                
-                if (searchTerm === '') {
-                    // Show only the active section when search is empty
-                    section.style.display = section.classList.contains('active') ? 'block' : 'none';
-                } else {
-                    // Show all matching sections during search
-                    section.style.display = matches ? 'block' : 'none';
-                }
+                section.style.display = searchTerm === '' || matches ? 'block' : 'none';
             });
-        });
-
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                document.querySelector('.sidebar').classList.remove('active');
-            }
         });
     </script>
 </body>
