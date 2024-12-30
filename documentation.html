@@ -1,160 +1,145 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NoxuOS Documentation</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            display: flex;
-            min-height: 100vh;
-            flex-direction: row;
-        }
-        .sidebar {
-            width: 250px;
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            background-color: #f8f9fa;
-            padding: 15px;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-        }
-        .content {
-            flex-grow: 1;
-            padding: 20px;
-        }
-        .accordion-button {
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
+import React, { useState } from 'react';
+import { Search } from 'lucide-react';
 
-    <!-- Sidebar Navigation (Context Tree) -->
-    <div class="sidebar">
-        <h4>Documentation</h4>
-        <ul class="list-group">
-            <li class="list-group-item">
-                <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#halCollapse" aria-expanded="true" aria-controls="halCollapse">
-                    Hardware Abstraction Layer (HAL)
-                </button>
-                <div id="halCollapse" class="collapse show">
-                    <ul class="list-group ms-3">
-                        <li class="list-group-item"><a href="#hal">Overview of HAL</a></li>
-                        <li class="list-group-item"><a href="#hal-details">HAL Components and Code Structure</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#osCollapse" aria-expanded="false" aria-controls="osCollapse">
-                    OS Architecture
-                </button>
-                <div id="osCollapse" class="collapse">
-                    <ul class="list-group ms-3">
-                        <li class="list-group-item"><a href="#os-architecture">Overview of OS Architecture</a></li>
-                        <li class="list-group-item"><a href="#os-structure">OS Kernel and Core Components</a></li>
-                    </ul>
-                </div>
-            </li>
-            <!-- Add more sections as needed -->
-        </ul>
-    </div>
+const DocumentationPage = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [activeSection, setActiveSection] = useState('hal');
 
-    <!-- Main Content Area -->
-    <div class="content">
-        <section class="info-section" id="hal">
-            <h2>Hardware Abstraction Layer (HAL)</h2>
-            <div class="accordion" id="halAccordion">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="halHeading">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#halContent" aria-expanded="false" aria-controls="halContent">
-                            Overview of HAL
-                        </button>
-                    </h2>
-                    <div id="halContent" class="accordion-collapse collapse" aria-labelledby="halHeading" data-bs-parent="#halAccordion">
-                        <div class="accordion-body">
-                            The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components. It ensures that the operating system is independent of the underlying hardware and can run on different devices without modification.
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="halDetailsHeading">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#halDetails" aria-expanded="false" aria-controls="halDetails">
-                            HAL Components and Code Structure
-                        </button>
-                    </h2>
-                    <div id="halDetails" class="accordion-collapse collapse" aria-labelledby="halDetailsHeading" data-bs-parent="#halAccordion">
-                        <div class="accordion-body">
-                            This section will cover the specific components of the HAL, including:
-                            <ul>
-                                <li>Driver abstractions for different hardware types</li>
-                                <li>Memory management for hardware devices</li>
-                                <li>Low-level communication protocols</li>
-                            </ul>
-                            You can expand this section with code examples and detailed explanations.
-                        </div>
-                    </div>
-                </div>
+  const sections = {
+    hal: {
+      title: 'Hardware Abstraction Layer (HAL)',
+      subsections: [
+        {
+          id: 'hal-overview',
+          title: 'Overview',
+          content: 'The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components. It ensures that the operating system is independent of the underlying hardware and can run on different devices without modification.'
+        },
+        {
+          id: 'hal-components',
+          title: 'Components and Structure',
+          content: (
+            <div>
+              <p>The HAL consists of several key components that work together to provide hardware independence:</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Driver abstractions for different hardware types</li>
+                <li>Memory management for hardware devices</li>
+                <li>Low-level communication protocols</li>
+              </ul>
             </div>
-        </section>
-
-        <section class="info-section" id="os-architecture">
-            <h2>Overall OS Architecture</h2>
-            <div class="accordion" id="osAccordion">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="osOverviewHeading">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#osOverviewContent" aria-expanded="false" aria-controls="osOverviewContent">
-                            Overview of OS Architecture
-                        </button>
-                    </h2>
-                    <div id="osOverviewContent" class="accordion-collapse collapse" aria-labelledby="osOverviewHeading" data-bs-parent="#osAccordion">
-                        <div class="accordion-body">
-                            NoxuOS architecture is designed to be modular and flexible, leveraging an AI-driven kernel. It uses a hybrid AI architecture that combines both on-device and cloud processing capabilities to optimize performance and privacy.
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="osStructureHeading">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#osStructureDetails" aria-expanded="false" aria-controls="osStructureDetails">
-                            OS Kernel and Core Components
-                        </button>
-                    </h2>
-                    <div id="osStructureDetails" class="accordion-collapse collapse" aria-labelledby="osStructureHeading" data-bs-parent="#osAccordion">
-                        <div class="accordion-body">
-                            The kernel of NoxuOS is designed for high scalability and performance. It is built with parallelism in mind and supports real-time AI decision-making. This section will cover:
-                            <ul>
-                                <li>AI-driven task scheduling</li>
-                                <li>Multi-threading and resource allocation</li>
-                                <li>Integration of AI models and libraries</li>
-                            </ul>
-                            You can expand this section with code snippets, flow diagrams, and explanations on how each component works.
-                        </div>
-                    </div>
-                </div>
+          )
+        }
+      ]
+    },
+    os: {
+      title: 'OS Architecture',
+      subsections: [
+        {
+          id: 'os-overview',
+          title: 'Overview',
+          content: 'NoxuOS architecture is designed to be modular and flexible, leveraging an AI-driven kernel. It uses a hybrid AI architecture that combines both on-device and cloud processing capabilities to optimize performance and privacy.'
+        },
+        {
+          id: 'os-kernel',
+          title: 'Kernel and Core Components',
+          content: (
+            <div>
+              <p>The kernel of NoxuOS is designed for high scalability and performance, featuring:</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>AI-driven task scheduling</li>
+                <li>Multi-threading and resource allocation</li>
+                <li>Integration of AI models and libraries</li>
+              </ul>
             </div>
-        </section>
+          )
+        }
+      ]
+    }
+  };
 
-        <!-- You can add more sections here, following the same structure for other parts of the OS -->
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Navigation Header */}
+      <nav className="bg-white shadow-sm sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-16 items-center">
+            <div className="flex-shrink-0">
+              <h1 className="text-xl font-bold text-gray-900">NoxuOS Documentation</h1>
+            </div>
+            <div className="relative w-96">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <Search className="h-5 w-5 text-gray-400" />
+              </div>
+              <input
+                type="text"
+                className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                placeholder="Search documentation..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </div>
+          </div>
+        </div>
+      </nav>
 
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="flex gap-8">
+          {/* Sidebar */}
+          <div className="w-64 flex-shrink-0">
+            <div className="sticky top-24 bg-white rounded-lg shadow-sm p-4">
+              <nav className="space-y-1">
+                {Object.entries(sections).map(([key, section]) => (
+                  <div key={key} className="space-y-1">
+                    <button
+                      onClick={() => setActiveSection(key)}
+                      className={`w-full text-left px-3 py-2 rounded-md text-sm font-medium ${
+                        activeSection === key
+                          ? 'bg-blue-50 text-blue-700'
+                          : 'text-gray-900 hover:bg-gray-50'
+                      }`}
+                    >
+                      {section.title}
+                    </button>
+                    {activeSection === key && (
+                      <div className="ml-4 space-y-1">
+                        {section.subsections.map((subsection) => (
+                          <a
+                            key={subsection.id}
+                            href={`#${subsection.id}`}
+                            className="block px-3 py-2 rounded-md text-sm text-gray-600 hover:bg-gray-50"
+                          >
+                            {subsection.title}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </nav>
+            </div>
+          </div>
+
+          {/* Main Content */}
+          <div className="flex-1 bg-white rounded-lg shadow-sm p-8">
+            {Object.entries(sections).map(([key, section]) => (
+              <div key={key} className={activeSection === key ? '' : 'hidden'}>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">{section.title}</h2>
+                <div className="space-y-8">
+                  {section.subsections.map((subsection) => (
+                    <div key={subsection.id} id={subsection.id} className="scroll-mt-20">
+                      <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                        {subsection.title}
+                      </h3>
+                      <div className="prose max-w-none">{subsection.content}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
+  );
+};
 
-    <footer>
-        <p>&copy; <span id="copyright-year"></span> NoxuOS. All rights reserved.</p>
-        <p>
-            <a href="privacy.html">Privacy Policy</a> | 
-            <a href="terms.html">Terms of Service</a> | 
-            <a href="https://discord.gg/kwE5MqYydh" class="discord-button" target="_blank"> <i class="bi bi-discord"></i> Join Our Discord </a>
-        </p>
-    </footer>
-
-    <script>
-        const startYear = 2024;
-        const currentYear = new Date().getFullYear();
-        document.getElementById("copyright-year").textContent = 
-            startYear === currentYear ? startYear : `${startYear} - ${currentYear}`;
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+export default DocumentationPage;
