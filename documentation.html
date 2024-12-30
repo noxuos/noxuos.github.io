@@ -3,7 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NoxuOS Documentation</title>
+    <title>NoxuOS Documentation - AI Operating System Guide & Reference</title>
+    <meta name="description" content="Complete documentation for NoxuOS, the AI-driven operating system. Learn how to use and customize your AI OS experience with our comprehensive guides.">
+    <meta name="keywords" content="NoxuOS documentation, Noxu guide, AI Operating System manual, Operating System documentation, AI OS tutorial">
+    <meta name="author" content="NoxuOS Team">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="NoxuOS Documentation - AI Operating System Guide">
+    <meta property="og:description" content="Complete documentation and guides for NoxuOS, the AI-powered operating system. Learn everything about your AI OS.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://noxuos.org/documentation">
+    <meta property="og:site_name" content="NoxuOS">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NoxuOS Documentation - AI Operating System Guide">
+    <meta name="twitter:description" content="Complete documentation and guides for NoxuOS, the AI-powered operating system. Learn everything about your AI OS.">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="canonical" content="https://noxuos.org/documentation">
+    
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -24,30 +45,42 @@
 
     <main>
         <div class="docs-container">
-            <nav class="docs-sidebar">
+            <nav class="docs-sidebar" role="navigation" aria-label="Documentation navigation">
                 <div class="docs-search">
-                    <input type="text" placeholder="Search documentation...">
+                    <input type="text" id="searchInput" placeholder="Search documentation..." aria-label="Search documentation">
+                    <i class="bi bi-search search-icon" aria-hidden="true"></i>
                 </div>
-                <div class="docs-nav">
-                    <a href="#hal" class="docs-nav-link" data-section="hal">Hardware Abstraction Layer (HAL)</a>
-                    <a href="#hal-components" class="docs-nav-link" data-section="hal-components">HAL Components</a>
-                    <a href="#os-architecture" class="docs-nav-link" data-section="os-architecture">OS Architecture</a>
-                    <a href="#os-kernel" class="docs-nav-link" data-section="os-kernel">OS Kernel</a>
+                <div class="docs-nav" id="sidebar-nav" role="menu">
+                    <!-- Sidebar links will be dynamically populated -->
                 </div>
             </nav>
 
-            <div class="docs-content">
-                <section id="hal" class="docs-section">
-                    <button type="button" class="collapsible">Hardware Abstraction Layer (HAL)</button>
-                    <div class="content">
-                        <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components. It ensures that the operating system is independent of the underlying hardware and can run on different devices without modification.</p>
+            <div class="docs-content" id="docs-content" role="main" aria-label="Documentation content">
+                <section id="hal" class="docs-section" aria-labelledby="hal-title">
+                    <button class="collapsible" id="hal-title" aria-expanded="false" aria-controls="hal-content">
+                        Hardware Abstraction Layer (HAL)
+                    </button>
+                    <div class="content" id="hal-content" role="region" aria-labelledby="hal-title">
+                        <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components...</p>
+                        <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components...</p>
+                        <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components...</p>
+                        <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components...</p>
+                        <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components...</p>
+                        <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components...</p>
+                        <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components...</p>
+                        <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components...</p>
+                        <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components...</p>
+                        <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components...</p>
+                        <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components...</p>
+                        <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components...</p>
+                        <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components...</p>
                     </div>
                 </section>
-
-                <section id="hal-components" class="docs-section">
-                    <button type="button" class="collapsible">HAL Components</button>
-                    <div class="content">
-                        <h3 class="docs-subsection-title">Core Components</h3>
+                <section id="hal-components" class="docs-section" aria-labelledby="hal-components-title">
+                    <button class="collapsible" id="hal-components-title" aria-expanded="false" aria-controls="hal-components-content">
+                        HAL Components
+                    </button>
+                    <div class="content" id="hal-components-content" role="region" aria-labelledby="hal-components-title">
                         <ul>
                             <li>Driver abstractions for different hardware types</li>
                             <li>Memory management for hardware devices</li>
@@ -55,18 +88,21 @@
                         </ul>
                     </div>
                 </section>
-
-                <section id="os-architecture" class="docs-section">
-                    <button type="button" class="collapsible">OS Architecture</button>
-                    <div class="content">
-                        <p>NoxuOS architecture is designed to be modular and flexible, leveraging an AI-driven kernel. It uses a hybrid AI architecture that combines both on-device and cloud processing capabilities to optimize performance and privacy.</p>
+                
+                <section id="os-architecture" class="docs-section" aria-labelledby="os-architecture-title">
+                    <button class="collapsible" id="os-architecture-title" aria-expanded="false" aria-controls="os-architecture-content">
+                        OS Architecture
+                    </button>
+                    <div class="content" id="os-architecture-content" role="region" aria-labelledby="os-architecture-title">
+                        <p>NoxuOS architecture is designed to be modular and flexible, leveraging an AI-driven kernel...</p>
                     </div>
                 </section>
-
-                <section id="os-kernel" class="docs-section">
-                    <button type="button" class="collapsible">OS Kernel and Core Components</button>
-                    <div class="content">
-                        <h3 class="docs-subsection-title">Key Features</h3>
+                
+                <section id="os-kernel" class="docs-section" aria-labelledby="os-kernel-title">
+                    <button class="collapsible" id="os-kernel-title" aria-expanded="false" aria-controls="os-kernel-content">
+                        OS Kernel and Core Components
+                    </button>
+                    <div class="content" id="os-kernel-content" role="region" aria-labelledby="os-kernel-title">
                         <ul>
                             <li>AI-driven task scheduling</li>
                             <li>Multi-threading and resource allocation</li>
@@ -79,102 +115,16 @@
     </main>
 
     <footer>
-        <p>&copy; <span id="copyright-year"></span> NoxuOS. All rights reserved.</p>
+        <p>&copy; 2024 NoxuOS. All rights reserved.</p>
         <p>
             <a href="privacy.html">Privacy Policy</a> | 
             <a href="terms.html">Terms of Service</a> | 
-            <a href="https://discord.gg/kwE5MqYydh" class="discord-button" target="_blank">
+            <a href="https://discord.gg/kwE5MqYydh" class="discord-button" target="_blank" rel="noopener noreferrer">
                 <i class="bi bi-discord"></i> Join Our Discord
             </a>
         </p>
     </footer>
 
-    <script>
-        // Copyright year
-        const startYear = 2024;
-        const currentYear = new Date().getFullYear();
-        document.getElementById("copyright-year").textContent = 
-            startYear === currentYear ? startYear : `${startYear} - ${currentYear}`;
-
-        // Documentation navigation and collapsible sections
-        document.addEventListener('DOMContentLoaded', function() {
-            // Hide all sections initially
-            document.querySelectorAll('.docs-section').forEach(section => {
-                section.style.display = 'none';
-            });
-
-            // Show first section by default
-            const firstSection = document.querySelector('.docs-section');
-            if (firstSection) {
-                firstSection.style.display = 'block';
-                document.querySelector('.docs-nav-link').classList.add('active');
-            }
-
-            // Handle navigation clicks
-            document.querySelectorAll('.docs-nav-link').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const sectionId = link.getAttribute('href').substring(1);
-                    
-                    // Update active states
-                    document.querySelectorAll('.docs-nav-link').forEach(navLink => {
-                        navLink.classList.remove('active');
-                    });
-                    document.querySelectorAll('.docs-section').forEach(section => {
-                        section.style.display = 'none';
-                    });
-                    
-                    // Show clicked section
-                    link.classList.add('active');
-                    const targetSection = document.getElementById(sectionId);
-                    if (targetSection) {
-                        targetSection.style.display = 'block';
-                    }
-                });
-            });
-
-            // Search functionality
-            document.querySelector('.docs-search input').addEventListener('input', (e) => {
-                const searchTerm = e.target.value.toLowerCase();
-                const sections = document.querySelectorAll('.docs-section');
-                
-                if (searchTerm === '') {
-                    // When search is empty, show only active section
-                    sections.forEach(section => {
-                        section.style.display = 'none';
-                    });
-                    const activeLink = document.querySelector('.docs-nav-link.active');
-                    if (activeLink) {
-                        const activeSectionId = activeLink.getAttribute('href').substring(1);
-                        const activeSection = document.getElementById(activeSectionId);
-                        if (activeSection) {
-                            activeSection.style.display = 'block';
-                        }
-                    }
-                } else {
-                    // Show all sections that match search
-                    sections.forEach(section => {
-                        const text = section.textContent.toLowerCase();
-                        section.style.display = text.includes(searchTerm) ? 'block' : 'none';
-                    });
-                }
-            });
-
-            // Collapsible sections
-            const collapsibles = document.querySelectorAll('.collapsible');
-
-            collapsibles.forEach(button => {
-                button.addEventListener('click', function() {
-                    this.classList.toggle('active');
-                    const content = this.nextElementSibling;
-                    if (content.style.display === "block") {
-                        content.style.display = "none";
-                    } else {
-                        content.style.display = "block";
-                    }
-                });
-            });
-        });
-    </script>
+    <script src="scripts.js"></script>
 </body>
 </html>
