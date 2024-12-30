@@ -49,6 +49,10 @@ header {
     color: #1e90ff;
 }
 
+.top-menu a {
+    text-decoration: none; /* Explicitly ensure no underline */
+}
+
 /* Logo Styles */
 .logo {
     font-size: 1.8rem;
