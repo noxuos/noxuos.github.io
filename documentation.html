@@ -4,190 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NoxuOS Documentation</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <style>
-        :root {
-            --sidebar-width: 280px;
-            --primary-color: #007bff;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Header Styles */
-        .top-menu {
-            background: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            padding: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .top-menu ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-            margin: 0;
-            padding: 0;
-        }
-
-        .top-menu a {
-            color: #333;
-            text-decoration: none;
-        }
-
-        .top-menu a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Main Container */
-        .main-container {
-            display: flex;
-            flex: 1;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            width: var(--sidebar-width);
-            background: #f8f9fa;
-            padding: 20px;
-            border-right: 1px solid #dee2e6;
-        }
-
-        .nav-link {
-            color: #495057;
-            text-decoration: none;
-            padding: 8px 12px;
-            display: block;
-            border-radius: 4px;
-            margin-bottom: 4px;
-        }
-
-        .nav-link:hover {
-            background: #e9ecef;
-            color: var(--primary-color);
-        }
-
-        .nav-link.active {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        /* Content */
-        .content {
-            flex: 1;
-            padding: 30px;
-            max-width: calc(100% - var(--sidebar-width));
-        }
-
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section-title {
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #dee2e6;
-        }
-
-        .subsection {
-            margin-bottom: 30px;
-        }
-
-        .subsection-title {
-            color: #495057;
-            margin-bottom: 15px;
-        }
-
-        /* Footer */
-        footer {
-            background: #f8f9fa;
-            padding: 1rem;
-            text-align: center;
-            border-top: 1px solid #dee2e6;
-        }
-
-        footer a {
-            color: #495057;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        footer a:hover {
-            color: var(--primary-color);
-        }
-
-        .discord-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            .main-container {
-                flex-direction: column;
-            }
-
-            .sidebar {
-                width: 100%;
-                border-right: none;
-                border-bottom: 1px solid #dee2e6;
-            }
-
-            .content {
-                max-width: 100%;
-            }
-
-            .top-menu {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .top-menu ul {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-        }
-
-        /* Search Box */
-        .search-container {
-            padding: 0 12px 20px 12px;
-            border-bottom: 1px solid #dee2e6;
-            margin-bottom: 20px;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 8px 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            outline: none;
-        }
-
-        .search-input:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -203,85 +22,53 @@
         </nav>
     </header>
 
-    <div class="main-container">
-        <nav class="sidebar">
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search documentation...">
+    <main>
+        <div class="docs-container">
+            <nav class="docs-sidebar">
+                <div class="docs-search">
+                    <input type="text" placeholder="Search documentation...">
+                </div>
+                <div class="docs-nav">
+                    <a href="#hal" class="docs-nav-link" data-section="hal">Hardware Abstraction Layer (HAL)</a>
+                    <a href="#hal-components" class="docs-nav-link" data-section="hal-components">HAL Components</a>
+                    <a href="#os-architecture" class="docs-nav-link" data-section="os-architecture">OS Architecture</a>
+                    <a href="#os-kernel" class="docs-nav-link" data-section="os-kernel">OS Kernel</a>
+                </div>
+            </nav>
+
+            <div class="docs-content">
+                <section id="hal" class="docs-section">
+                    <h2 class="docs-section-title">Hardware Abstraction Layer (HAL)</h2>
+                    <div class="docs-subsection">
+                        <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components. It ensures that the operating system is independent of the underlying hardware and can run on different devices without modification.</p>
+                    </div>
+                </section>
+
+                <section id="hal-components" class="docs-section">
+                    <h2 class="docs-section-title">HAL Components</h2>
+                    <div class="docs-subsection">
+                        <h3 class="docs-subsection-title">Core Components</h3>
+                        <ul>
+                            <li>Driver abstractions for different hardware types</li>
+                            <li>Memory management for hardware devices</li>
+                            <li>Low-level communication protocols</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Additional sections... -->
             </div>
-            <div class="nav-section">
-                <a href="#hal" class="nav-link" data-section="hal">Hardware Abstraction Layer (HAL)</a>
-                <a href="#hal-components" class="nav-link" data-section="hal-components">HAL Components</a>
-                <a href="#os-architecture" class="nav-link" data-section="os-architecture">OS Architecture</a>
-                <a href="#os-kernel" class="nav-link" data-section="os-kernel">OS Kernel</a>
-            </div>
-        </nav>
-
-        <main class="content">
-            <section id="hal" class="section">
-                <h2 class="section-title">Hardware Abstraction Layer (HAL)</h2>
-                <div class="subsection">
-                    <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components. It ensures that the operating system is independent of the underlying hardware and can run on different devices without modification.</p>
-                    <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components. It ensures that the operating system is independent of the underlying hardware and can run on different devices without modification.</p>
-                    <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components. It ensures that the operating system is independent of the underlying hardware and can run on different devices without modification.</p>
-                    <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components. It ensures that the operating system is independent of the underlying hardware and can run on different devices without modification.</p>
-                    <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components. It ensures that the operating system is independent of the underlying hardware and can run on different devices without modification.</p>
-                    <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components. It ensures that the operating system is independent of the underlying hardware and can run on different devices without modification.</p>
-                    <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components. It ensures that the operating system is independent of the underlying hardware and can run on different devices without modification.</p>
-                    <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components. It ensures that the operating system is independent of the underlying hardware and can run on different devices without modification.</p>
-                    <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components. It ensures that the operating system is independent of the underlying hardware and can run on different devices without modification.</p>
-                    <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components. It ensures that the operating system is independent of the underlying hardware and can run on different devices without modification.</p>
-                    <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components. It ensures that the operating system is independent of the underlying hardware and can run on different devices without modification.</p>
-                    <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components. It ensures that the operating system is independent of the underlying hardware and can run on different devices without modification.</p>
-                    <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components. It ensures that the operating system is independent of the underlying hardware and can run on different devices without modification.</p>
-                    <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components. It ensures that the operating system is independent of the underlying hardware and can run on different devices without modification.</p>
-                    <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components. It ensures that the operating system is independent of the underlying hardware and can run on different devices without modification.</p>
-                    <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components. It ensures that the operating system is independent of the underlying hardware and can run on different devices without modification.</p>
-                    <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components. It ensures that the operating system is independent of the underlying hardware and can run on different devices without modification.</p>
-                    <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components. It ensures that the operating system is independent of the underlying hardware and can run on different devices without modification.</p>
-                    <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components. It ensures that the operating system is independent of the underlying hardware and can run on different devices without modification.</p>
-                    <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components. It ensures that the operating system is independent of the underlying hardware and can run on different devices without modification.</p>
-                </div>
-            </section>
-
-            <section id="hal-components" class="section">
-                <h2 class="section-title">HAL Components</h2>
-                <div class="subsection">
-                    <h3 class="subsection-title">Core Components</h3>
-                    <ul>
-                        <li>Driver abstractions for different hardware types</li>
-                        <li>Memory management for hardware devices</li>
-                        <li>Low-level communication protocols</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section id="os-architecture" class="section">
-                <h2 class="section-title">OS Architecture</h2>
-                <div class="subsection">
-                    <p>NoxuOS architecture is designed to be modular and flexible, leveraging an AI-driven kernel. It uses a hybrid AI architecture that combines both on-device and cloud processing capabilities to optimize performance and privacy.</p>
-                </div>
-            </section>
-
-            <section id="os-kernel" class="section">
-                <h2 class="section-title">OS Kernel and Core Components</h2>
-                <div class="subsection">
-                    <h3 class="subsection-title">Key Features</h3>
-                    <ul>
-                        <li>AI-driven task scheduling</li>
-                        <li>Multi-threading and resource allocation</li>
-                        <li>Integration of AI models and libraries</li>
-                    </ul>
-                </div>
-            </section>
-        </main>
-    </div>
+        </div>
+    </main>
 
     <footer>
         <p>&copy; <span id="copyright-year"></span> NoxuOS. All rights reserved.</p>
         <p>
             <a href="privacy.html">Privacy Policy</a> | 
             <a href="terms.html">Terms of Service</a> | 
-            <a href="https://discord.gg/kwE5MqYydh" class="discord-button" target="_blank"><i class="bi bi-discord"></i> Join Our Discord</a>
+            <a href="https://discord.gg/kwE5MqYydh" class="discord-button" target="_blank">
+                <i class="bi bi-discord"></i> Join Our Discord
+            </a>
         </p>
     </footer>
 
@@ -292,37 +79,47 @@
         document.getElementById("copyright-year").textContent = 
             startYear === currentYear ? startYear : `${startYear} - ${currentYear}`;
 
-        // Navigation handling
-        document.querySelectorAll('.nav-link').forEach(link => {
+        // Documentation navigation
+        document.querySelectorAll('.docs-nav-link').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const sectionId = link.getAttribute('href').substring(1);
                 
                 // Update active states
-                document.querySelectorAll('.nav-link').forEach(navLink => {
+                document.querySelectorAll('.docs-nav-link').forEach(navLink => {
                     navLink.classList.remove('active');
                 });
-                
-                link.classList.add('active');
-                
-                // Scroll to section
-                document.getElementById(sectionId).scrollIntoView({
-                    behavior: 'smooth'
+                document.querySelectorAll('.docs-section').forEach(section => {
+                    section.classList.remove('active');
                 });
+                
+                // Activate clicked section
+                link.classList.add('active');
+                document.getElementById(sectionId).classList.add('active');
             });
         });
 
         // Search functionality
-        document.querySelector('.search-input').addEventListener('input', (e) => {
+        document.querySelector('.docs-search input').addEventListener('input', (e) => {
             const searchTerm = e.target.value.toLowerCase();
-            const sections = document.querySelectorAll('.section');
+            const sections = document.querySelectorAll('.docs-section');
             
-            sections.forEach(section => {
-                const text = section.textContent.toLowerCase();
-                const matches = text.includes(searchTerm);
-                section.style.display = searchTerm === '' || matches ? 'block' : 'none';
-            });
+            if (searchTerm === '') {
+                // When search is empty, show only active section
+                sections.forEach(section => {
+                    section.style.display = section.classList.contains('active') ? 'block' : 'none';
+                });
+            } else {
+                // Show all sections that match search
+                sections.forEach(section => {
+                    const text = section.textContent.toLowerCase();
+                    section.style.display = text.includes(searchTerm) ? 'block' : 'none';
+                });
+            }
         });
+
+        // Show first section by default
+        document.querySelector('.docs-nav-link').click();
     </script>
 </body>
 </html>
