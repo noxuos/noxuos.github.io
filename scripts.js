@@ -3,12 +3,18 @@ let collapsibles;
 let sections;
 let sidebarNav;
 let searchInput;
+let mobileMenuToggle;
+let navLinks;
+let sidebarToggle;
+let sidebar;
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     initializeElements();
     initializeSidebar();
     initializeEventListeners();
+    initializeMobileMenu();
+    updateCopyright();
 });
 
 // Initialize DOM element references
@@ -17,6 +23,39 @@ function initializeElements() {
     sections = document.querySelectorAll('.docs-section');
     sidebarNav = document.getElementById('sidebar-nav');
     searchInput = document.getElementById('searchInput');
+    mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    navLinks = document.querySelector('.nav-links');
+    sidebarToggle = document.querySelector('.sidebar-toggle');
+    sidebar = document.querySelector('.docs-sidebar');
+}
+
+// Initialize mobile menu
+function initializeMobileMenu() {
+    if (mobileMenuToggle && navLinks) {
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 
+                navLinks.classList.contains('active'));
+        });
+    }
+
+    if (sidebarToggle && sidebar) {
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            sidebarToggle.setAttribute('aria-expanded', 
+                sidebar.classList.contains('active'));
+        });
+
+        // Close sidebar when clicking outside
+        document.addEventListener('click', (e) => {
+            if (sidebar.classList.contains('active') && 
+                !sidebar.contains(e.target) && 
+                !sidebarToggle.contains(e.target)) {
+                sidebar.classList.remove('active');
+                sidebarToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
 }
 
 // Initialize sidebar
@@ -133,6 +172,12 @@ function initializeEventListeners() {
             document.querySelectorAll('.docs-nav-link').forEach(l => l.classList.remove('active'));
             if (!content.style.maxHeight) {
                 this.classList.add('active');
+            }
+
+            // Close mobile sidebar if open
+            if (window.innerWidth <= 768 && sidebar) {
+                sidebar.classList.remove('active');
+                sidebarToggle.setAttribute('aria-expanded', 'false');
             }
         });
     });
