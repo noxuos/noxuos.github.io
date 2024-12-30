@@ -1,153 +1,115 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f9f9f9;
+/* Your existing styles remain unchanged */
+
+/* Additional Documentation Styles */
+:root {
+    --sidebar-width: 280px;
+    --primary-color: #1e90ff;
+}
+
+/* Documentation Container */
+.docs-container {
     display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensures full viewport height */
-}
-
-/* Header Styles */
-header {
-    background: linear-gradient(90deg, #222, #444);
-    color: #fff;
-    padding: 1rem 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.top-menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
-}
-
-.top-menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-}
-
-.top-menu ul li {
-    margin-right: 1.5rem;
-}
-
-.top-menu ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: color 0.3s ease;
-}
-
-.top-menu ul li a:hover {
-    color: #1e90ff;
-}
-
-.top-menu a {
-    text-decoration: none; /* Explicitly ensure no underline */
-}
-
-/* Logo Styles */
-.logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #1e90ff;
-    text-transform: uppercase;
-    user-select: none;
-    cursor: default;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
-}
-
-.logo i {
-    font-size: 2rem;
-    color: #ffd700; /* Golden color for the icon */
-    text-decoration: none;
-}
-
-/* Main Content */
-main {
-    padding: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
     flex: 1;
+    margin-top: 2rem;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
 }
 
-.info-section {
-    margin-bottom: 2rem;
+/* Sidebar Styles */
+.docs-sidebar {
+    width: var(--sidebar-width);
+    background: #f8f9fa;
+    padding: 20px;
+    border-right: 1px solid #dee2e6;
+    border-radius: 8px 0 0 8px;
 }
 
-.info-section h1,
-.info-section h2 {
+.docs-search {
+    padding: 0 12px 20px 12px;
+    border-bottom: 1px solid #dee2e6;
+    margin-bottom: 20px;
+}
+
+.docs-search input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+}
+
+.docs-search input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(30,144,255,0.25);
+}
+
+.docs-nav-link {
+    color: #495057;
+    text-decoration: none;
+    padding: 8px 12px;
+    display: block;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    transition: all 0.3s ease;
+}
+
+.docs-nav-link:hover {
+    background: #e9ecef;
+    color: var(--primary-color);
+}
+
+.docs-nav-link.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Content Styles */
+.docs-content {
+    flex: 1;
+    padding: 30px;
+    max-width: calc(100% - var(--sidebar-width));
+}
+
+.docs-section {
+    margin-bottom: 40px;
+    display: none;  /* Hidden by default */
+}
+
+.docs-section.active {
+    display: block;  /* Shown when active */
+}
+
+.docs-section-title {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #dee2e6;
     color: #222;
 }
 
-.github-button {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background: #1e90ff;
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background 0.3s ease;
+.docs-subsection {
+    margin-bottom: 30px;
 }
 
-.github-button:hover {
-    background: #0077cc;
+.docs-subsection-title {
+    color: #495057;
+    margin-bottom: 15px;
 }
 
-.github-button:hover {
-    background-color: #0077cc;
-}
-
-/* Discord Button Styles */
-.discord-button {
-    display: inline-flex;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #7289DA; /* Discord's blue color */
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    text-align: center;
-    transition: background-color 0.3s;
-}
-
-.discord-button i {
-    margin-right: 8px; /* Adds space between the icon and text */
-}
-
-.discord-button:hover {
-    background-color: #5865F2; /* A lighter shade on hover */
-}
-
-/* Footer */
-footer {
-    background: #222;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-    margin-top: auto;
-}
-
-/* Responsive Design */
+/* Mobile Adjustments */
 @media (max-width: 768px) {
-    .top-menu ul {
+    .docs-container {
         flex-direction: column;
-        align-items: flex-start;
     }
 
-    .top-menu ul li {
-        margin-bottom: 1rem;
+    .docs-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #dee2e6;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .docs-content {
+        max-width: 100%;
     }
 }
