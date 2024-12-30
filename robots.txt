@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Sitemap: https://noxuos.org/sitemap.xml
+
+# Allow all bots to access these directories
+Allow: /about/
+Allow: /documentation/
+Allow: /privacy/
+Allow: /terms/
+
+# Prevent caching of assets
+Disallow: /assets/
+Disallow: /css/
+Disallow: /js/
+
+# Rate limiting
+Crawl-delay: 10
