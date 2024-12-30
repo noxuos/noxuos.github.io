@@ -77,17 +77,39 @@
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        .docs-section {
+        .content {
             display: none;
+            margin-top: 10px;
+            padding-left: 20px;
         }
 
+        .collapsible {
+            background-color: #777;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            font-size: 18px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .collapsible:hover {
+            background-color: #555;
+        }
+
+        .active, .collapsible:active {
+            background-color: #555;
+        }
+
+        /* Section Title Styles */
         .docs-section-title {
             font-size: 24px;
             margin-bottom: 10px;
-        }
-
-        .docs-subsection {
-            margin-bottom: 20px;
         }
 
         .docs-subsection-title {
@@ -124,24 +146,24 @@
                     <input type="text" placeholder="Search documentation...">
                 </div>
                 <div class="docs-nav">
-                    <a href="#hal" class="docs-nav-link" data-section="hal">Hardware Abstraction Layer (HAL)</a>
-                    <a href="#hal-components" class="docs-nav-link" data-section="hal-components">HAL Components</a>
-                    <a href="#os-architecture" class="docs-nav-link" data-section="os-architecture">OS Architecture</a>
-                    <a href="#os-kernel" class="docs-nav-link" data-section="os-kernel">OS Kernel</a>
+                    <a href="javascript:void(0)" class="docs-nav-link" data-section="hal">Hardware Abstraction Layer (HAL)</a>
+                    <a href="javascript:void(0)" class="docs-nav-link" data-section="hal-components">HAL Components</a>
+                    <a href="javascript:void(0)" class="docs-nav-link" data-section="os-architecture">OS Architecture</a>
+                    <a href="javascript:void(0)" class="docs-nav-link" data-section="os-kernel">OS Kernel</a>
                 </div>
             </nav>
 
             <div class="docs-content">
                 <section id="hal" class="docs-section">
-                    <h2 class="docs-section-title">Hardware Abstraction Layer (HAL)</h2>
-                    <div class="docs-subsection">
+                    <button type="button" class="collapsible">Hardware Abstraction Layer (HAL)</button>
+                    <div class="content">
                         <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components. It ensures that the operating system is independent of the underlying hardware and can run on different devices without modification.</p>
                     </div>
                 </section>
 
                 <section id="hal-components" class="docs-section">
-                    <h2 class="docs-section-title">HAL Components</h2>
-                    <div class="docs-subsection">
+                    <button type="button" class="collapsible">HAL Components</button>
+                    <div class="content">
                         <h3 class="docs-subsection-title">Core Components</h3>
                         <ul>
                             <li>Driver abstractions for different hardware types</li>
@@ -152,15 +174,15 @@
                 </section>
 
                 <section id="os-architecture" class="docs-section">
-                    <h2 class="docs-section-title">OS Architecture</h2>
-                    <div class="docs-subsection">
+                    <button type="button" class="collapsible">OS Architecture</button>
+                    <div class="content">
                         <p>NoxuOS architecture is designed to be modular and flexible, leveraging an AI-driven kernel. It uses a hybrid AI architecture that combines both on-device and cloud processing capabilities to optimize performance and privacy.</p>
                     </div>
                 </section>
 
                 <section id="os-kernel" class="docs-section">
-                    <h2 class="docs-section-title">OS Kernel and Core Components</h2>
-                    <div class="docs-subsection">
+                    <button type="button" class="collapsible">OS Kernel and Core Components</button>
+                    <div class="content">
                         <h3 class="docs-subsection-title">Key Features</h3>
                         <ul>
                             <li>AI-driven task scheduling</li>
@@ -191,68 +213,20 @@
         document.getElementById("copyright-year").textContent = 
             startYear === currentYear ? startYear : `${startYear} - ${currentYear}`;
 
-        // Documentation navigation and collapsible sections
+        // Collapsible sections
         document.addEventListener('DOMContentLoaded', function() {
-            // Hide all sections initially
-            document.querySelectorAll('.docs-section').forEach(section => {
-                section.style.display = 'none';
-            });
+            const collapsibles = document.querySelectorAll('.collapsible');
 
-            // Show first section by default
-            const firstSection = document.querySelector('.docs-section');
-            if (firstSection) {
-                firstSection.style.display = 'block';
-                document.querySelector('.docs-nav-link').classList.add('active');
-            }
-
-            // Handle navigation clicks
-            document.querySelectorAll('.docs-nav-link').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const sectionId = link.getAttribute('href').substring(1);
-                    
-                    // Update active states
-                    document.querySelectorAll('.docs-nav-link').forEach(navLink => {
-                        navLink.classList.remove('active');
-                    });
-                    document.querySelectorAll('.docs-section').forEach(section => {
-                        section.style.display = 'none';
-                    });
-                    
-                    // Show clicked section
-                    link.classList.add('active');
-                    const targetSection = document.getElementById(sectionId);
-                    if (targetSection) {
-                        targetSection.style.display = 'block';
+            collapsibles.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const content = this.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
                     }
                 });
-            });
-
-            // Search functionality
-            document.querySelector('.docs-search input').addEventListener('input', (e) => {
-                const searchTerm = e.target.value.toLowerCase();
-                const sections = document.querySelectorAll('.docs-section');
-                
-                if (searchTerm === '') {
-                    // When search is empty, show only active section
-                    sections.forEach(section => {
-                        section.style.display = 'none';
-                    });
-                    const activeLink = document.querySelector('.docs-nav-link.active');
-                    if (activeLink) {
-                        const activeSectionId = activeLink.getAttribute('href').substring(1);
-                        const activeSection = document.getElementById(activeSectionId);
-                        if (activeSection) {
-                            activeSection.style.display = 'block';
-                        }
-                    }
-                } else {
-                    // Show all sections that match search
-                    sections.forEach(section => {
-                        const text = section.textContent.toLowerCase();
-                        section.style.display = text.includes(searchTerm) ? 'block' : 'none';
-                    });
-                }
             });
         });
     </script>
