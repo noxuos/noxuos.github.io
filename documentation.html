@@ -6,40 +6,74 @@
     <title>NoxuOS Documentation</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: row;
+        }
+        .sidebar {
+            width: 250px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            background-color: #f8f9fa;
+            padding: 15px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .accordion-button {
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <nav class="top-menu">
-            <a href="index.html">
-                <div class="logo"><i class="bi bi-stars"></i> NoxuOS</div>
-            </a>
-            <ul>
-                <li><a href="about.html">About</a></li>
-                <li><a href="index.html#roadmap">Roadmap</a></li>
-                <li><a href="index.html#contribute">Contribute</a></li>
-                <li><a href="documentation.html">Documentation</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Sidebar Navigation (Context Tree) -->
+    <div class="sidebar">
+        <h4>Documentation</h4>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#halCollapse" aria-expanded="true" aria-controls="halCollapse">
+                    Hardware Abstraction Layer (HAL)
+                </button>
+                <div id="halCollapse" class="collapse show">
+                    <ul class="list-group ms-3">
+                        <li class="list-group-item"><a href="#hal">Overview of HAL</a></li>
+                        <li class="list-group-item"><a href="#hal-details">HAL Components and Code Structure</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#osCollapse" aria-expanded="false" aria-controls="osCollapse">
+                    OS Architecture
+                </button>
+                <div id="osCollapse" class="collapse">
+                    <ul class="list-group ms-3">
+                        <li class="list-group-item"><a href="#os-architecture">Overview of OS Architecture</a></li>
+                        <li class="list-group-item"><a href="#os-structure">OS Kernel and Core Components</a></li>
+                    </ul>
+                </div>
+            </li>
+            <!-- Add more sections as needed -->
+        </ul>
+    </div>
 
-    <main>
-        <section class="info-section">
-            <h1>NoxuOS Documentation</h1>
-            <p>Welcome to the NoxuOS documentation. Here you can find detailed explanations on the architecture, components, and how to contribute to the development of NoxuOS.</p>
-        </section>
-
-        <!-- Collapsible Sections -->
-        <section id="hal" class="info-section">
+    <!-- Main Content Area -->
+    <div class="content">
+        <section class="info-section" id="hal">
             <h2>Hardware Abstraction Layer (HAL)</h2>
             <div class="accordion" id="halAccordion">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="halHeading">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#halContent" aria-expanded="true" aria-controls="halContent">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#halContent" aria-expanded="false" aria-controls="halContent">
                             Overview of HAL
                         </button>
                     </h2>
-                    <div id="halContent" class="accordion-collapse collapse show" aria-labelledby="halHeading" data-bs-parent="#halAccordion">
+                    <div id="halContent" class="accordion-collapse collapse" aria-labelledby="halHeading" data-bs-parent="#halAccordion">
                         <div class="accordion-body">
                             The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components. It ensures that the operating system is independent of the underlying hardware and can run on different devices without modification.
                         </div>
@@ -66,16 +100,16 @@
             </div>
         </section>
 
-        <section id="os-architecture" class="info-section">
+        <section class="info-section" id="os-architecture">
             <h2>Overall OS Architecture</h2>
             <div class="accordion" id="osAccordion">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="osOverviewHeading">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#osOverviewContent" aria-expanded="true" aria-controls="osOverviewContent">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#osOverviewContent" aria-expanded="false" aria-controls="osOverviewContent">
                             Overview of OS Architecture
                         </button>
                     </h2>
-                    <div id="osOverviewContent" class="accordion-collapse collapse show" aria-labelledby="osOverviewHeading" data-bs-parent="#osAccordion">
+                    <div id="osOverviewContent" class="accordion-collapse collapse" aria-labelledby="osOverviewHeading" data-bs-parent="#osAccordion">
                         <div class="accordion-body">
                             NoxuOS architecture is designed to be modular and flexible, leveraging an AI-driven kernel. It uses a hybrid AI architecture that combines both on-device and cloud processing capabilities to optimize performance and privacy.
                         </div>
@@ -104,7 +138,7 @@
 
         <!-- You can add more sections here, following the same structure for other parts of the OS -->
 
-    </main>
+    </div>
 
     <footer>
         <p>&copy; <span id="copyright-year"></span> NoxuOS. All rights reserved.</p>
