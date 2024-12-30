@@ -32,75 +32,113 @@
 <body>
     <header>
         <nav class="top-menu">
-            <a href="index.html">
-                <div class="logo"><i class="bi bi-stars"></i> NoxuOS</div>
+            <a href="index.html" class="logo" aria-label="NoxuOS Home">
+                <i class="bi bi-stars"></i> NoxuOS
             </a>
-            <ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i class="bi bi-list"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="documentation.html" aria-current="page">Documentation</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="#roadmap">Roadmap</a></li>
-                <li><a href="#contribute">Contribute</a></li>
+                <li><a href="index.html#roadmap">Roadmap</a></li>
+                <li><a href="index.html#contribute">Contribute</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <div class="docs-container">
-            <nav class="docs-sidebar" role="navigation" aria-label="Documentation navigation">
-                <div class="docs-search">
+    <div class="docs-container">
+        <button class="sidebar-toggle" aria-label="Toggle sidebar">
+            <i class="bi bi-layout-sidebar"></i>
+        </button>
+        
+        <aside class="docs-sidebar" aria-label="Documentation navigation">
+            <div class="sidebar-header">
+                <div class="search-container">
+                    <i class="bi bi-search"></i>
                     <input type="text" id="searchInput" placeholder="Search documentation..." aria-label="Search documentation">
-                    <i class="bi bi-search search-icon" aria-hidden="true"></i>
                 </div>
-                <div class="docs-nav" id="sidebar-nav" role="menu">
-                    <!-- Sidebar links will be dynamically populated -->
-                </div>
-            </nav>
-
-            <div class="docs-content" id="docs-content" role="main" aria-label="Documentation content">
-                <section id="hal" class="docs-section" aria-labelledby="hal-title">
-                    <button class="collapsible" id="hal-title" aria-expanded="false" aria-controls="hal-content">
-                        Hardware Abstraction Layer (HAL)
-                    </button>
-                    <div class="content" id="hal-content" role="region" aria-labelledby="hal-title">
-                        <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components...</p>
-                       </div>
-                </section>
-                <section id="hal-components" class="docs-section" aria-labelledby="hal-components-title">
-                    <button class="collapsible" id="hal-components-title" aria-expanded="false" aria-controls="hal-components-content">
-                        HAL Components
-                    </button>
-                    <div class="content" id="hal-components-content" role="region" aria-labelledby="hal-components-title">
-                        <ul>
-                            <li>Driver abstractions for different hardware types</li>
-                            <li>Memory management for hardware devices</li>
-                            <li>Low-level communication protocols</li>
-                        </ul>
-                    </div>
-                </section>
-                
-                <section id="os-architecture" class="docs-section" aria-labelledby="os-architecture-title">
-                    <button class="collapsible" id="os-architecture-title" aria-expanded="false" aria-controls="os-architecture-content">
-                        OS Architecture
-                    </button>
-                    <div class="content" id="os-architecture-content" role="region" aria-labelledby="os-architecture-title">
-                        <p>NoxuOS architecture is designed to be modular and flexible, leveraging an AI-driven kernel...</p>
-                    </div>
-                </section>
-                
-                <section id="os-kernel" class="docs-section" aria-labelledby="os-kernel-title">
-                    <button class="collapsible" id="os-kernel-title" aria-expanded="false" aria-controls="os-kernel-content">
-                        OS Kernel and Core Components
-                    </button>
-                    <div class="content" id="os-kernel-content" role="region" aria-labelledby="os-kernel-title">
-                        <ul>
-                            <li>AI-driven task scheduling</li>
-                            <li>Multi-threading and resource allocation</li>
-                            <li>Integration of AI models and libraries</li>
-                        </ul>
-                    </div>
-                </section>
             </div>
-        </div>
-    </main>
+            <nav id="sidebar-nav">
+                <!-- Navigation links will be dynamically added here -->
+            </nav>
+        </aside>
+
+        <main class="docs-content">
+            <h1>NoxuOS Documentation</h1>
+            
+            <section id="getting-started" class="docs-section" aria-labelledby="getting-started-title">
+                <button class="collapsible" id="getting-started-title" aria-expanded="false">
+                    Getting Started
+                </button>
+                <div class="content">
+                    <p>Welcome to NoxuOS! This guide will help you get started with installation and basic usage.</p>
+                </div>
+            </section>
+
+            <section id="installation" class="docs-section" aria-labelledby="installation-title">
+                <button class="collapsible" id="installation-title" aria-expanded="false">
+                    Installation Guide
+                </button>
+                <div class="content">
+                    <p>Follow these steps to install NoxuOS on your system...</p>
+                </div>
+            </section>
+
+            <section id="hal" class="docs-section" aria-labelledby="hal-title">
+                <button class="collapsible" id="hal-title" aria-expanded="false">
+                    Hardware Abstraction Layer
+                </button>
+                <div class="content">
+                    <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components...</p>
+                </div>
+            </section>
+
+            <section id="ai-features" class="docs-section" aria-labelledby="ai-features-title">
+                <button class="collapsible" id="ai-features-title" aria-expanded="false">
+                    AI Features
+                </button>
+                <div class="content">
+                    <p>NoxuOS includes advanced AI features that help optimize your computing experience...</p>
+                </div>
+            </section>
+
+            <section id="os-architecture" class="docs-section" aria-labelledby="os-architecture-title">
+                <button class="collapsible" id="os-architecture-title" aria-expanded="false">
+                    OS Architecture
+                </button>
+                <div class="content">
+                    <p>NoxuOS architecture is designed to be modular and flexible, leveraging an AI-driven kernel...</p>
+                </div>
+            </section>
+            
+            <section id="os-kernel" class="docs-section" aria-labelledby="os-kernel-title">
+                <button class="collapsible" id="os-kernel-title" aria-expanded="false">
+                    OS Kernel and Core Components
+                </button>
+                <div class="content">
+                    <ul>
+                        <li>AI-driven task scheduling</li>
+                        <li>Multi-threading and resource allocation</li>
+                        <li>Integration of AI models and libraries</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="hal-components" class="docs-section" aria-labelledby="hal-components-title">
+                <button class="collapsible" id="hal-components-title" aria-expanded="false">
+                    HAL Components
+                </button>
+                <div class="content">
+                    <ul>
+                        <li>Driver abstractions for different hardware types</li>
+                        <li>Memory management for hardware devices</li>
+                        <li>Low-level communication protocols</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
 
     <footer>
         <p>&copy; 2024 NoxuOS. All rights reserved.</p>
