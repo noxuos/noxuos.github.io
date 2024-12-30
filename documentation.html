@@ -38,15 +38,15 @@
 
             <div class="docs-content">
                 <section id="hal" class="docs-section">
-                    <h2 class="docs-section-title">Hardware Abstraction Layer (HAL)</h2>
-                    <div class="docs-subsection">
+                    <button type="button" class="collapsible">Hardware Abstraction Layer (HAL)</button>
+                    <div class="content">
                         <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components. It ensures that the operating system is independent of the underlying hardware and can run on different devices without modification.</p>
                     </div>
                 </section>
 
                 <section id="hal-components" class="docs-section">
-                    <h2 class="docs-section-title">HAL Components</h2>
-                    <div class="docs-subsection">
+                    <button type="button" class="collapsible">HAL Components</button>
+                    <div class="content">
                         <h3 class="docs-subsection-title">Core Components</h3>
                         <ul>
                             <li>Driver abstractions for different hardware types</li>
@@ -57,15 +57,15 @@
                 </section>
 
                 <section id="os-architecture" class="docs-section">
-                    <h2 class="docs-section-title">OS Architecture</h2>
-                    <div class="docs-subsection">
+                    <button type="button" class="collapsible">OS Architecture</button>
+                    <div class="content">
                         <p>NoxuOS architecture is designed to be modular and flexible, leveraging an AI-driven kernel. It uses a hybrid AI architecture that combines both on-device and cloud processing capabilities to optimize performance and privacy.</p>
                     </div>
                 </section>
 
                 <section id="os-kernel" class="docs-section">
-                    <h2 class="docs-section-title">OS Kernel and Core Components</h2>
-                    <div class="docs-subsection">
+                    <button type="button" class="collapsible">OS Kernel and Core Components</button>
+                    <div class="content">
                         <h3 class="docs-subsection-title">Key Features</h3>
                         <ul>
                             <li>AI-driven task scheduling</li>
@@ -94,7 +94,7 @@
         const startYear = 2024;
         const currentYear = new Date().getFullYear();
         document.getElementById("copyright-year").textContent = 
-            startYear === currentYear ? startYear : ${startYear} - ${currentYear};
+            startYear === currentYear ? startYear : `${startYear} - ${currentYear}`;
 
         // Documentation navigation and collapsible sections
         document.addEventListener('DOMContentLoaded', function() {
@@ -158,6 +158,21 @@
                         section.style.display = text.includes(searchTerm) ? 'block' : 'none';
                     });
                 }
+            });
+
+            // Collapsible sections
+            const collapsibles = document.querySelectorAll('.collapsible');
+
+            collapsibles.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const content = this.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                });
             });
         });
     </script>
