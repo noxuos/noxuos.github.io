@@ -1,0 +1,34 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "NoxuOS",
+  "applicationCategory": "OperatingSystem",
+  "operatingSystem": "Cross-platform",
+  "description": "NoxuOS is a revolutionary AI-driven operating system that seamlessly integrates artificial intelligence into its core architecture.",
+  "offers": {
+    "@type": "Offer",
+    "availability": "ComingSoon"
+  },
+  "featureList": [
+    "AI Integration",
+    "Modular and Flexible Design",
+    "Advanced AI Capabilities",
+    "Scalability and Hybrid Architecture",
+    "Security and Privacy",
+    "Open-Source Potential"
+  ],
+  "keywords": "AI Operating System, NoxuOS, AI OS, artificial intelligence OS, modern operating system",
+  "url": "https://noxuos.org",
+  "sameAs": [
+    "https://github.com/noxuos",
+    "https://twitter.com/noxuos",
+    "https://discord.gg/noxuos"
+  ],
+  "author": {
+    "@type": "Organization",
+    "name": "NoxuOS Team",
+    "url": "https://noxuos.org/about"
+  },
+  "datePublished": "2025-01-06",
+  "dateModified": "2025-01-06"
+}
