@@ -176,15 +176,19 @@ main {
 
 .search-container {
     position: relative;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
 }
 
-.search-container i {
+.search-container i.bi-search {
     position: absolute;
-    left: 1rem;
+    left: 0.75rem;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--color-text-light);
+    color: var(--color-text);
+    opacity: 0.6;
+    pointer-events: none;
 }
 
 #searchInput {
@@ -193,6 +197,55 @@ main {
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     font-size: 0.9rem;
+    background: white;
+    transition: all var(--transition-fast);
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(30, 144, 255, 0.1);
+}
+
+.clear-search {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    padding: 0.25rem;
+    cursor: pointer;
+    color: var(--color-text);
+    opacity: 0.6;
+    display: none;
+    border-radius: 50%;
+    transition: all var(--transition-fast);
+}
+
+.clear-search:hover {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.search-message {
+    color: var(--color-text);
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: var(--radius-md);
+    margin-bottom: 1rem;
+}
+
+.search-highlight {
+    background: none;
+}
+
+.search-highlight mark {
+    background-color: rgba(255, 255, 0, 0.3);
+    padding: 0.1em 0;
+    border-radius: 2px;
 }
 
 #sidebar-nav {
@@ -201,19 +254,30 @@ main {
     gap: 0.5rem;
 }
 
+.nav-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
 .docs-nav-link {
     display: block;
-    padding: 0.75rem 1rem;
+    padding: 0.5rem;
     color: var(--color-text);
     text-decoration: none;
     border-radius: var(--radius-sm);
-    transition: all 0.3s ease;
+    transition: all var(--transition-fast);
 }
 
-.docs-nav-link:hover,
+.docs-nav-link:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--color-primary);
+}
+
 .docs-nav-link.active {
-    background: var(--primary-color);
-    color: white;
+    background: rgba(30, 144, 255, 0.1);
+    color: var(--color-primary);
+    font-weight: 500;
 }
 
 /* Content Areas */
@@ -391,6 +455,107 @@ footer .discord-button i {
 .feature-card h3 {
     color: var(--primary-color);
     margin-bottom: 1rem;
+}
+
+/* Features Page Styles */
+.features-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.features-container h1 {
+    font-size: 2.5rem;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.intro-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--spacing-xl);
+}
+
+.feature-section {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.feature-section h2 {
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+.feature-section h2 i {
+    font-size: 1.5em;
+}
+
+.feature-section > p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: var(--spacing-xl);
+}
+
+.feature-subsection {
+    background: var(--color-background);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+}
+
+.feature-subsection h3 {
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.feature-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    padding: var(--spacing-md);
+}
+
+.feature-content h4 {
+    color: var(--color-primary-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.feature-content p {
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+/* Responsive Design for Features Page */
+@media (max-width: 768px) {
+    .features-container {
+        padding: var(--spacing-md);
+    }
+
+    .features-container h1 {
+        font-size: 2rem;
+    }
+
+    .feature-section {
+        padding: var(--spacing-lg);
+    }
+
+    .feature-content {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-subsection {
+        padding: var(--spacing-md);
+    }
 }
 
 /* Responsive Design */
