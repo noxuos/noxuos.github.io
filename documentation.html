@@ -40,6 +40,7 @@
             </button>
             <ul class="nav-links">
                 <li><a href="documentation.html" aria-current="page">Documentation</a></li>
+                <li><a href="features.html">Features</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="index.html#roadmap">Roadmap</a></li>
                 <li><a href="index.html#contribute">Contribute</a></li>
@@ -57,10 +58,18 @@
                 <div class="search-container">
                     <i class="bi bi-search"></i>
                     <input type="text" id="searchInput" placeholder="Search documentation..." aria-label="Search documentation">
+                    <button type="button" id="clearSearch" class="clear-search" aria-label="Clear search">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                <div id="no-results-message" class="search-message" style="display: none;">
+                    No results found
                 </div>
             </div>
-            <nav id="sidebar-nav">
-                <!-- Navigation links will be dynamically added here -->
+            <nav id="sidebar-nav" role="navigation">
+                <div class="nav-sections">
+                    <!-- Navigation links will be dynamically added here -->
+                </div>
             </nav>
         </aside>
 
@@ -72,7 +81,17 @@
                     Getting Started
                 </button>
                 <div class="content">
-                    <p>Welcome to NoxuOS! This guide will help you get started with installation and basic usage.</p>
+                    <p>Welcome to NoxuOS! This guide will help you get started with installation and basic usage of our revolutionary AI-powered operating system.</p>
+                    <h3>What is NoxuOS?</h3>
+                    <p>NoxuOS is a next-generation AI operating system that seamlessly integrates artificial intelligence into its core architecture. It's designed for modern computing needs across desktops, mobile devices, smart homes, and wearables.</p>
+                    <h3>Key Features Overview</h3>
+                    <ul>
+                        <li>AI-driven real-time decision making and task automation</li>
+                        <li>Cross-platform compatibility and modular design</li>
+                        <li>Advanced security and privacy protection</li>
+                        <li>Hybrid cloud and device architecture</li>
+                        <li>Open-source development potential</li>
+                    </ul>
                 </div>
             </section>
 
@@ -81,16 +100,15 @@
                     Installation Guide
                 </button>
                 <div class="content">
-                    <p>Follow these steps to install NoxuOS on your system...</p>
-                </div>
-            </section>
-
-            <section id="hal" class="docs-section" aria-labelledby="hal-title">
-                <button class="collapsible" id="hal-title" aria-expanded="false">
-                    Hardware Abstraction Layer
-                </button>
-                <div class="content">
-                    <p>The Hardware Abstraction Layer (HAL) is responsible for providing a unified interface for NoxuOS to interact with hardware components...</p>
+                    <p>NoxuOS is designed to be scalable and adaptable to various environments. Before installation, ensure your system meets the following requirements:</p>
+                    <h3>System Requirements</h3>
+                    <ul>
+                        <li>Compatible with desktop computers, mobile devices, and IoT systems</li>
+                        <li>Supports both cloud-based and local processing capabilities</li>
+                        <li>Internet connection for cloud features and updates</li>
+                    </ul>
+                    <h3>Installation Steps</h3>
+                    <p>Detailed installation instructions coming soon...</p>
                 </div>
             </section>
 
@@ -99,7 +117,22 @@
                     AI Features
                 </button>
                 <div class="content">
-                    <p>NoxuOS includes advanced AI features that help optimize your computing experience...</p>
+                    <h3>Core AI Capabilities</h3>
+                    <ul>
+                        <li><strong>Real-time Decision Making:</strong> Advanced algorithms process and analyze data in real-time, providing intelligent responses to user needs.</li>
+                        <li><strong>Task Automation:</strong> Streamline your workflow with AI-powered automation that learns and adapts to your usage patterns.</li>
+                        <li><strong>Enhanced User Interface:</strong> Intuitive and responsive interfaces that adapt to your usage patterns.</li>
+                    </ul>
+                    
+                    <h3>Business Integration</h3>
+                    <ul>
+                        <li>Specialized features designed for enterprise efficiency and productivity</li>
+                        <li>AI-enhanced workflow optimization</li>
+                        <li>Secure data handling and processing</li>
+                    </ul>
+
+                    <h3>Privacy-First Design</h3>
+                    <p>Advanced AI capabilities are implemented without compromising user privacy, ensuring a secure and trustworthy computing environment.</p>
                 </div>
             </section>
 
@@ -108,40 +141,60 @@
                     OS Architecture
                 </button>
                 <div class="content">
-                    <p>NoxuOS architecture is designed to be modular and flexible, leveraging an AI-driven kernel...</p>
+                    <h3>Hybrid Architecture</h3>
+                    <ul>
+                        <li><strong>Cloud Integration:</strong> Combines on-device AI processing with cloud-based capabilities</li>
+                        <li><strong>Performance Optimization:</strong> Enhanced computing capabilities across all connected devices</li>
+                        <li><strong>Resource Management:</strong> Optimal balance between local and cloud-based computing resources</li>
+                    </ul>
+
+                    <h3>Modular Design</h3>
+                    <ul>
+                        <li>Scalable architecture that adapts to user needs</li>
+                        <li>Cross-platform support for seamless device integration</li>
+                        <li>IoT integration through a unified interface</li>
+                    </ul>
                 </div>
             </section>
             
-            <section id="os-kernel" class="docs-section" aria-labelledby="os-kernel-title">
-                <button class="collapsible" id="os-kernel-title" aria-expanded="false">
-                    OS Kernel and Core Components
+            <section id="security" class="docs-section" aria-labelledby="security-title">
+                <button class="collapsible" id="security-title" aria-expanded="false">
+                    Security and Privacy
                 </button>
                 <div class="content">
+                    <h3>Security Features</h3>
                     <ul>
-                        <li>AI-driven task scheduling</li>
-                        <li>Multi-threading and resource allocation</li>
-                        <li>Integration of AI models and libraries</li>
+                        <li><strong>Robust Protection:</strong> Advanced security measures to protect your data and privacy</li>
+                        <li><strong>Secure Processing:</strong> Protected handling of sensitive tasks and information</li>
+                        <li><strong>Privacy Controls:</strong> Granular control over your data and privacy settings</li>
                     </ul>
+
+                    <h3>Implementation Guidelines</h3>
+                    <p>Security measures are integrated at every level, ensuring users can trust the system for handling sensitive tasks and data while maintaining functionality.</p>
                 </div>
             </section>
 
-            <section id="hal-components" class="docs-section" aria-labelledby="hal-components-title">
-                <button class="collapsible" id="hal-components-title" aria-expanded="false">
-                    HAL Components
+            <section id="developer-guide" class="docs-section" aria-labelledby="developer-guide-title">
+                <button class="collapsible" id="developer-guide-title" aria-expanded="false">
+                    Developer Guide
                 </button>
                 <div class="content">
+                    <h3>Development Features</h3>
                     <ul>
-                        <li>Driver abstractions for different hardware types</li>
-                        <li>Memory management for hardware devices</li>
-                        <li>Low-level communication protocols</li>
+                        <li><strong>AI Task Scheduling:</strong> Access to advanced task scheduling capabilities</li>
+                        <li><strong>Multi-threading Support:</strong> Efficient handling of parallel processes</li>
+                        <li><strong>AI Library Integration:</strong> Comprehensive support for AI models and development libraries</li>
                     </ul>
+
+                    <h3>Community Contribution</h3>
+                    <p>NoxuOS is exploring opportunities to become an open-source AI OS. Developers can collaborate worldwide to enhance and expand the system's capabilities.</p>
                 </div>
             </section>
         </main>
     </div>
 
     <footer>
-        <p>&copy; <span id="copyright-year">2024</span> NoxuOS. All rights reserved.</p>
+        <p>&copy; <span id="copyright-year"></span> NoxuOS. All rights reserved.</p>
         <p>
             <a href="privacy.html">Privacy Policy</a> | 
             <a href="terms.html">Terms of Service</a> | 
