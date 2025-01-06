@@ -1,17 +1,23 @@
 User-agent: *
 Allow: /
+
+# Main pages
+Allow: /index.html
+Allow: /features.html
+Allow: /documentation.html
+Allow: /about.html
+
+# Legal pages
+Allow: /privacy.html
+Allow: /terms.html
+
+# Assets
+Allow: /images/
+Allow: /css/
+Allow: /js/
+
+# Sitemap
 Sitemap: https://noxuos.org/sitemap.xml
 
-# Allow all bots to access these directories
-Allow: /about/
-Allow: /documentation/
-Allow: /privacy/
-Allow: /terms/
-
-# Prevent caching of assets
-Disallow: /assets/
-Disallow: /css/
-Disallow: /js/
-
-# Rate limiting
+# Crawl-delay
 Crawl-delay: 10
